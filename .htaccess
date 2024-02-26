@@ -1,0 +1,11 @@
+php_value upload_max_filesize 1000M
+php_value post_max_size 1000M
+php_value max.execution_time 1000
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+RewriteRule ^profile/?$ profile.php [NC,L]
+
+ErrorDocument 404 /project/brokenlink
